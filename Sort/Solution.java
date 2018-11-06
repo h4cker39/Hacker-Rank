@@ -1,43 +1,43 @@
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
-
-public class Solution {
-
-    /*
-     * Complete the simpleArraySum function below.
-     */
-    static int simpleArraySum(int[] ar) {
-    	int finalCount = 0;
-    	   for( int i = 0 ; i<ar.length;i++) {
-    		   finalCount += ar[i];
-    	   }
-    	return finalCount;
-    }
-
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        int arCount = Integer.parseInt(scanner.nextLine().trim());
-
-        int[] ar = new int[arCount];
-
-        String[] arItems = scanner.nextLine().split(" ");
-
-        for (int arItr = 0; arItr < arCount; arItr++) {
-            int arItem = Integer.parseInt(arItems[arItr].trim());
-            ar[arItr] = arItem;
-        }
-
-        int result = simpleArraySum(ar);
-
-        bufferedWriter.write(String.valueOf(result));
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
-    }
+import java.util.Arrays; 
+public class help {
+	static void miniMaxSum(int[] arr) {	   
+		int [] tempArray = arr;
+		int min = 0 ;
+	    int max = 0;
+	    //Find Minumum
+	    for(int i = 0 ; i < tempArray.length ; i++) {
+	    	for(int j = 0 ; j < tempArray.length ; j++) {
+	    		if(tempArray[i] < tempArray[j]) {
+	        	   min = tempArray[i];
+	           } else if(tempArray[i] > tempArray[j]) {
+	        	   min = tempArray[j];
+	        	   tempArray[i] = min;
+	           } 		
+	    	}
+	    	if(min != 0) {
+	    		break;
+	    	}
+	    }  
+	    for(int i = 0 ; i< tempArray.length ;i ++) {
+	    	for(int j = 0 ; j< tempArray.length ; j++) {
+	    		  if(tempArray[i] > tempArray[j]) {
+	    			  max = tempArray[i];
+	    		  }else if(tempArray[i] < tempArray[j]){
+	    			  max = tempArray[j];
+	    			  tempArray[i] = max;
+	    		  }
+	    	}
+	    	if(max != 0) {
+	    		break;
+	    	}
+	    }
+    System.out.println(min  + " " +max );	    
+	}
+	
+	public static void main(String [] args) {
+		int[] arr =  {7,69,2,221,8974};
+		miniMaxSum(arr);
+		int[] arr3 =  {1,2,3,4,5};
+		miniMaxSum(arr3);
+	}
 }
