@@ -1,2 +1,5 @@
-# Hacker-Rank
-Solutions
+# Hacker Rank Solutions 
+
+
+
+Solutions for Hacker Rank.
